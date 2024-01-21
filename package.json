@@ -1,6 +1,7 @@
 {
-  "name": "03-recent_repo__2",
+  "name": "03-recent_repo_2",
   "version": "0.1.0",
+  "description": "Fetches and presents a user's recently pushed GitHub repositories and commit information through a convenient API endpoint.",
   "private": true,
   "scripts": {
     "dev": "next dev",
