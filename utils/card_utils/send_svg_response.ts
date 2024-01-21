@@ -25,7 +25,7 @@ const sendSVGResponse = (
     <svg xmlns="http://www.w3.org/2000/svg" width="600" height="200">
         <defs>
           <pattern id="grid_image" patternUnits="userSpaceOnUse" width="100" height="100">
-            <image href="/background_grid.svg" x="0" y="0" width="600" height="200" />
+            <image href="https://recent-repo-2.vercel.app/background_grid.svg" x="0" y="0" width="600" height="200" />
           </pattern>
         </defs>
         <rect width="600" height="200" fill="url(#grid_image)" stroke="#4CCF90" stroke-width="2"/>
