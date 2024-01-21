@@ -14,6 +14,9 @@ Designed to be easily embedded within your GitHub-flavored README.md files for a
 ## Usage
 - Go to the [API directly](https://recent-repo-2.vercel.app/api/repo) to start on default settings
 
+## Example
+![](https://recent-repo-2.vercel.app/api/repo)
+
 ## Customization
 
 - Edit the CONSTANTS section within the code to adjust:
