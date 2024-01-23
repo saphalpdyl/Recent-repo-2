@@ -41,4 +41,5 @@ const createCommitText = (
   `;
 }
 
+export { createCommitsSVGFromList }
 export default createCommitsSVGFromList;

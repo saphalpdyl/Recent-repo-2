@@ -56,4 +56,5 @@ const sendSVGResponse = (
   `);
 }
 
+export { sendSVGResponse }
 export default sendSVGResponse;
