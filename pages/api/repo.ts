@@ -1,6 +1,6 @@
 // IMPORTS
 import type { NextApiRequest, NextApiResponse } from "next";
-import { card } from "@cardutils/index";
+import { card } from "@src/index";
 
 export default function handler(
   req: NextApiRequest,
