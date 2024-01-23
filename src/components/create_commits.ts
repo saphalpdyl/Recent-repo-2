@@ -1,23 +1,23 @@
 // IMPORTS
-import type { Commit } from "@cardutils/types";
-import { truncateString } from "./other";
+import type { Commit } from "@types";
+import { truncateString } from "../utils";
 
 const createCommitsSVGFromList = (
   commit_list: Commit[], 
   truncate_char_threshold: number
 ) => {
 
-  let commit_count = 0;
-  let commit_text = "";
+  let commitCount = 0;
+  let commitText = "";
   for (const commit of commit_list) {
     const sha = commit.sha.substring(0,7);
     const desc = commit.commit.message;
-    commit_text += createCommitText(sha,truncateString(desc,truncate_char_threshold),commit_count)
+    commitText += createCommitText(sha,truncateString(desc,truncate_char_threshold),commitCount)
 
-    commit_count++;
+    commitCount++;
   }
   
-  return commit_text;
+  return commitText;
 }
 
 const createCommitText = (
