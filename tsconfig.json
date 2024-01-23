@@ -15,7 +15,8 @@
     "baseUrl": ".",
     "paths": {
       "@styles/*": ["styles/*"],
-      "@cardutils/*": ["utils/card_utils/*"]
+      "@components/*": ["src/components/*"],
+      "@types/*": ["src/types/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
