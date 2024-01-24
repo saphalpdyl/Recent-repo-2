@@ -1,6 +1,5 @@
-// IMPORTS
 import type { NextApiRequest, NextApiResponse } from "next";
-import moment from "moment";
+
 import { fetchRepos, fetchCommits } from "./fetchers";
 
 import {
@@ -8,7 +7,7 @@ import {
   GITHUB_USERNAME,
   SORT_BY
 } from "./constants";
-import sendSVGResponse from "@components/send_svg_response";
+import sendSVGResponse from "@components/svg_card";
 
 export const card = async (
   req: NextApiRequest,
@@ -22,13 +21,12 @@ export const card = async (
   const repo = repos[repoPos];
 
   // Repo information
-  const repoLastPushed = moment.utc(repo['pushedAt']).local().startOf("seconds").fromNow();
-  const repoFullName : string = repo['fullName'];
-  const repoName : string = repo['name'];
-  const repoSize : string = repo['size'];
+  const repoLastPushed = moment.utc(repo.pushed_at).local().startOf("seconds").fromNow();
+  const repoFullName = repo.full_name;
+  const repoName = repo.name;
+  const repoSize = repo.size;
 
   const commits = await fetchCommits(GITHUB_USERNAME,repoName,COMMITS_TO_REQUEST);
-
   // Getting currrent time to check if github is still caching images or not
   const currentDate = new Date();
   const currentTime = currentDate.getTime();

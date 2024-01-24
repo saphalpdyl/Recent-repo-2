@@ -2,7 +2,7 @@
 import type { NextApiResponse } from "next";
 import type { Commit } from "@types";
 
-import createCommitsSVGFromList from "@components/create_commits";
+import createCommitsSVGFromList from "@components/commits";
 import { TRUNCATE_CHAR_THRESHOLD } from "../constants";
 
 const sendSVGResponse = (
