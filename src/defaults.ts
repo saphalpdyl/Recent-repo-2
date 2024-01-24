@@ -1,7 +1,7 @@
 const COMMITS_COUNT = 3;
 const SORT_BY = "pushed";
-const BACKGROUND_COLOR = "#212121";
-const BORDER_COLOR = "#4CCF90";
+const BACKGROUND_COLOR = "212121";
+const BORDER_COLOR = "4CCF90";
 const REPO_POS = 0;
 
 export {
