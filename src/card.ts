@@ -1,5 +1,5 @@
 import createCommitsSVGFromList from "@components/commits"; 
-import { SORT_BY, TRUNCATE_CHAR_THRESHOLD } from "./constants";
+import { TRUNCATE_CHAR_THRESHOLD } from "./constants";
 import type { Commit, Repository } from "@types";
 import { formatWithMoment } from "./utils";
 
