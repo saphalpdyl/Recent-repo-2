@@ -1,26 +1,50 @@
 // IMPORTS
 import type { NextApiRequest, NextApiResponse } from "next";
-// import { card } from "@src/index";
 import Card from "@src/card"
 import { fetchRepos, fetchCommits } from "@src/fetchers";
-import { COMMITS_TO_REQUEST, GITHUB_USERNAME, SORT_BY } from "@src/constants";
+import {  GITHUB_USERNAME, SORT_BY_OPTIONS }  from "@src/constants";
+import * as DEFAULTS from "@src/defaults";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const posParam = req.query['pos'];
-  const repoPos = typeof posParam === 'string' ? parseInt(posParam) || 0 : 0; // pos = 0 means latest one
+  const {
+    pos,
+    sortBy,
+    minimalism = false,
+    backgroundColor,
+    borderColor,
+    commitsCount,
+  } = req.query
+
+  // Parsing stuff
+  const parsedPos = typeof pos === 'string' ? parseInt(pos) : DEFAULTS.REPO_POS;
+  const parsedMinimalism = minimalism == "true" ? true : false;
+  const parsedCommitsCount = typeof commitsCount === 'string' ? parseInt(commitsCount): DEFAULTS.COMMITS_COUNT; // pos = 0 means latest one
+  const parsedBackgroundColor = typeof backgroundColor === 'string' ? backgroundColor : DEFAULTS.BACKGROUND_COLOR;
+  const parsedBorderColor = typeof borderColor === 'string' ? borderColor : DEFAULTS.BORDER_COLOR;
   
-  const repos = await fetchRepos(GITHUB_USERNAME, SORT_BY);
-  const repo = repos[repoPos];
+  // Parsing Sort By
+  const parsedSortBy = typeof sortBy === 'string' ? sortBy : DEFAULTS.SORT_BY;
+  if (!SORT_BY_OPTIONS.includes(parsedSortBy)) {
+    res.setHeader("Content-Type","application/json");
+    res.status(400).send('"message":"Invalid sort by field"')
+  }
   
-  const commits = await fetchCommits(GITHUB_USERNAME,repo.name,COMMITS_TO_REQUEST);
+  const repos = await fetchRepos(GITHUB_USERNAME, parsedSortBy);
+  const repo = repos[parsedPos];
+  const commits = await fetchCommits(GITHUB_USERNAME,repo.name,parsedCommitsCount);
 
   const card = new Card({
     repo,
     commits,
-    repoPos,
+    repoPos: parsedPos,
+    minimalism: parsedMinimalism,
+    backgroundColor: parsedBackgroundColor,
+    borderColor: parsedBorderColor,
+    sortBy: parsedSortBy,
+    commitsCount: parsedCommitsCount,
   });
   const renderedCard = await card.renderCard();
 

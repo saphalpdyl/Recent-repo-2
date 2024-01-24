@@ -29,13 +29,12 @@ class Card {
 
     repo,
     commits,
-    repoPos = 0,
-    commitsCount = 3,
-    sortBy = SORT_BY,
-    minimalism = false,
-    backgroundColor = "#212121",
-    borderColor = "#4CCF90",
-
+    repoPos,
+    commitsCount,
+    sortBy,
+    minimalism,
+    backgroundColor,
+    borderColor,
 
   }: CardConstructor) {
     Object.assign(this, {
@@ -85,9 +84,10 @@ class Card {
     const titleSVG = this.renderTitle()
     const designSVG = this.renderDesign()
 
+    console.log("Background Color: ", this.backgroundColor)
     return `
     <svg xmlns="http://www.w3.org/2000/svg" width="600" height="200">
-        <rect width="600" height="200" fill="#212121" stroke="#4CCF90" stroke-width="2"/>
+        <rect width="600" height="200" fill='#${this.backgroundColor}' stroke='#${this.borderColor}' stroke-width="2"/>
 
         ${titleSVG}
         <text fill="#ffffff" x="260" y="43" fill-opacity="0.31" font-size="14" font-family="Segoe UI,Verdana,sans-serif" font-weight="100">

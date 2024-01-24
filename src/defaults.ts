@@ -1,0 +1,13 @@
+const COMMITS_COUNT = 3;
+const SORT_BY = "pushed";
+const BACKGROUND_COLOR = "#212121";
+const BORDER_COLOR = "#4CCF90";
+const REPO_POS = 0;
+
+export {
+  COMMITS_COUNT,
+  SORT_BY,
+  BACKGROUND_COLOR,
+  BORDER_COLOR,
+  REPO_POS
+}
