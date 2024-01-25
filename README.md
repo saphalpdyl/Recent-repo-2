@@ -26,12 +26,12 @@ DON'T ❌ :
 ```
 
 #### WHY?
-> Loading it Markdown way takes 1-1.5 minutes for updates to appear. On the other hand, loading through <img> updates the image within 10 seconds after changes have been made.
+> Loading it Markdown way takes 1-1.5 minutes for updates to appear. On the other hand, loading through <img> updates the image within 10 seconds after changes have been made. ( Source: me )
 
---
-
-## Example
+## Examples ( Default + Configurations through query parameters )
 ![](https://recent-repo-2.vercel.app/api/repo)
+![](https://recent-repo-2.vercel.app/api/repo?pos=1&backgroundColor=0d1117&borderColor=596679&minimalism=true)
+![](https://recent-repo-2.vercel.app/api/repo?pos=2&backgroundColor=0ff3&borderColor=fff&disableBackgroundGrid=true)
 
 ## Customization
 
