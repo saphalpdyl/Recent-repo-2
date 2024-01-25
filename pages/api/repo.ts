@@ -12,11 +12,12 @@ export default async function handler(
   const {
     pos,
     sortBy,
-    minimalism = false,
+    minimalism,
     backgroundColor,
     borderColor,
     commitsCount,
-  } = req.query
+    disableBackgroundGrid,
+ } = req.query
 
   // Parsing stuff
   const parsedPos = typeof pos === 'string' ? parseInt(pos) : DEFAULTS.REPO_POS;
@@ -24,6 +25,7 @@ export default async function handler(
   const parsedCommitsCount = typeof commitsCount === 'string' ? parseInt(commitsCount): DEFAULTS.COMMITS_COUNT; // pos = 0 means latest one
   const parsedBackgroundColor = typeof backgroundColor === 'string' ? backgroundColor : DEFAULTS.BACKGROUND_COLOR;
   const parsedBorderColor = typeof borderColor === 'string' ? borderColor : DEFAULTS.BORDER_COLOR;
+  const parsedDisableBackgroundGrid = disableBackgroundGrid == "true" ? true : false;
   
   // Parsing Sort By
   const parsedSortBy = typeof sortBy === 'string' ? sortBy : DEFAULTS.SORT_BY;
@@ -45,6 +47,7 @@ export default async function handler(
     borderColor: parsedBorderColor,
     sortBy: parsedSortBy,
     commitsCount: parsedCommitsCount,
+    disableBackgroundGrid: parsedDisableBackgroundGrid
   });
   const renderedCard = await card.renderCard();
 

@@ -2,6 +2,7 @@ import createCommitsSVGFromList from "@components/commits";
 import { TRUNCATE_CHAR_THRESHOLD } from "./constants";
 import type { Commit, Repository } from "@types";
 import { formatWithMoment } from "./utils";
+import renderBackgroundGrid from "@components/grid";
 
 interface CardConstructor {
   repo: Repository,
@@ -12,6 +13,7 @@ interface CardConstructor {
   minimalism?: boolean,
   backgroundColor?: string,
   borderColor?: string,
+  disableBackgroundGrid?: boolean,
 }
 
 class Card {
@@ -24,6 +26,7 @@ class Card {
   minimalism: boolean;
   backgroundColor: string;
   borderColor: string;
+  disableBackgroundGrid: boolean;
 
   constructor({
 
@@ -35,6 +38,7 @@ class Card {
     minimalism,
     backgroundColor,
     borderColor,
+    disableBackgroundGrid,
 
   }: CardConstructor) {
     Object.assign(this, {
@@ -45,7 +49,8 @@ class Card {
       sortBy,
       minimalism,
       backgroundColor,
-      borderColor 
+      borderColor,
+      disableBackgroundGrid
     });
   }
 
@@ -84,10 +89,10 @@ class Card {
     const titleSVG = this.renderTitle()
     const designSVG = this.renderDesign()
 
-    console.log("Background Color: ", this.backgroundColor)
     return `
     <svg xmlns="http://www.w3.org/2000/svg" width="600" height="200">
         <rect width="600" height="200" fill='#${this.backgroundColor}' stroke='#${this.borderColor}' stroke-width="2"/>
+        ${this.disableBackgroundGrid ? "" : renderBackgroundGrid()}
 
         ${titleSVG}
         <text fill="#ffffff" x="260" y="43" fill-opacity="0.31" font-size="14" font-family="Segoe UI,Verdana,sans-serif" font-weight="100">
