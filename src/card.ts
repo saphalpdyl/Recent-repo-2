@@ -29,7 +29,6 @@ class Card {
   disableBackgroundGrid: boolean;
 
   constructor({
-
     repo,
     commits,
     repoPos,

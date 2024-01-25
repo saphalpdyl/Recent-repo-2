@@ -12,6 +12,11 @@ const fetchRepos = async (
     }
   );
 
+  if (response.status == 404)
+    throw new Error('{"message": "User Not Found"}',{
+    cause: "USER_NOT_FOUND"
+  });
+
   const jsonResponse = await response.json();
   return jsonResponse;
 }
