@@ -43,11 +43,7 @@ DON'T ❌ :
 ![](https://recent-repo-2.vercel.app/api/repo?username=saphalpdyl&pos=2&backgroundColor=0ff3&borderColor=fff&disableBackgroundGrid=true)
 
 ## Customization
-
-- Edit the CONSTANTS section within the code to adjust:
-- `COMMITS_TO_REQUEST`: Number of commits to display
-- `TRUNCATE_CHAR_THRESHOLD`: Maximum length of commit messages
-- `GITHUB_USERNAME`: Your GitHub username
+Fork the repo and host it on vercel for further customization.
 
 ##### Further Customization will be added soon
 
