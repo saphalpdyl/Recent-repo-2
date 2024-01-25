@@ -13,16 +13,25 @@ Designed to be easily embedded within your GitHub-flavored README.md files for a
 
 ## Usage
 - Go to the [API directly](https://recent-repo-2.vercel.app/api/repo) to start on default settings
+
+### Query Parameters
+- `username` : You Github Username
+- `pos` : The position of the displayed repo ( pos=0 corresponds to the latest repo )
+- `backgroundColor` : Background color in HEX format without '#'
+- `borderColor` : Color of the border in HEX format without '#'
+- `minimalism` : when `true` hide the design on the top right
+- `disableBackgroundGrid`: when `true` hide the dotted grid in the background
+
 ### To load the card
 
 DO ✔️ :
 ```html
-<img src="https://recent-repo-2.vercel.app/api/repo?pos=0" height="150" width="450" />
+<img src="https://recent-repo-2.vercel.app/api/repo?username=<github_username>&pos=0" height="150" width="450" />
 ```
 
 DON'T ❌ :
 ```markdown
-![](https://recent-repo-2.vercel.app/api/repo?pos=0)
+![](https://recent-repo-2.vercel.app/api/repo?username=<github_username>&pos=0)
 ```
 
 #### WHY?
