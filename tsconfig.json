@@ -2,6 +2,7 @@
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
+    "strictPropertyInitialization": false,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
@@ -15,7 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@styles/*": ["styles/*"],
-      "@cardutils/*": ["utils/card_utils/*"]
+      "@components/*": ["src/components/*"],
+      "@src/*": ["src/*"],
+      "@types": ["src/types/types"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
