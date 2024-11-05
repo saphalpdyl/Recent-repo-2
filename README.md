@@ -11,7 +11,7 @@ The renders an SVG card that displays information about your most recently updat
 
 Designed to be easily embedded within your GitHub-flavored README.md files for a visual showcase of your activity!
 
-[![Tech Stack](https://skillicons.dev/icons?i=next,svg)]()
+[![Tech Stack](https://skillicons.dev/icons?i=next,typescript,svg)]()
 
 ## Usage
 - Go to the [API directly](https://recent-repo-2.vercel.app/api/repo) to start on default settings
